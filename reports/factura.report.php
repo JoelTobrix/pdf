@@ -10,14 +10,14 @@ $pdf->Text(30, 10, 'Reporte de Facturas');
 $pdf->SetFont('Arial', '', 12);
 $pdf->MultiCell(0, 5, iconv('UTF-8', 'windows-1252', $texto), 0, 'J');
 
-// Uso de POO para obtener el listado de facturas
-$listafactura = $factura->todos();  // Método para obtener todas las facturas
+//  listado de facturas
+$listafactura = $factura->todos();  //Obtener facturas
 
-// Verificar si se obtuvieron datos de la base de datos
+// Verificacion obtencion de datos
 if ($listafactura) {
-    $pdf->Ln(10); // Espacio antes de la tabla
+    $pdf->Ln(10); // Espaciado
 
-    // Generar encabezados de tabla para las facturas
+    // Tablas facturas
     $pdf->Cell(10, 10, "#", 1);
     $pdf->Cell(30, 10, "ID Factura", 1);
     $pdf->Cell(40, 10, "Fecha", 1);
@@ -41,12 +41,12 @@ if ($listafactura) {
         $index++;
     }
 } else {
-    // Si no hay datos, agregar un mensaje en el PDF
+    
     $pdf->Ln(20);
     $pdf->Cell(0, 10, 'No hay facturas disponibles.', 1, 1, 'C');
 }
 
-// Número de página al final del reporte
+
 
 
 // Salida del PDF
